@@ -1,15 +1,23 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import "./App.css";
-import ToDoList from "./components/ToDoList";
+import List from './components/List'
+import { AppBar, ToolBar, IconButton, Fab, } from '@material-ui/core'
+import { MenuIcon, AddIcon, SearchIcon, MoreIcon } from '@material-ui/icons'
+
 
 class App extends Component {
+
   render() {
     return (
-      <div className="App">
-        <ToDoList />
-      </div>
-    );
+      <>
+        <Router>
+          <div>
+            <Route exact path='/' component={List} />
+          </div>
+        </Router>
+      </>
+    )
   }
 }
 export default App;
