@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 
-class List extends Component {
+class ToDoList extends Component {
   render() {
     return (
       <>
@@ -9,4 +9,4 @@ class List extends Component {
     )
   }
 }
-export default List;
+export default ToDoList;
