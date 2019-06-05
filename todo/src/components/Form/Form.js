@@ -96,7 +96,7 @@ class Form extends Component {
           // onChange={handleChange('multiline')}
           // className={classes.textField}
           margin="normal"
-          helperText="please Enter an event"
+          helperText="Please enter a To Do item"
           variant="outlined"
         />
         {/* End textfield */}
