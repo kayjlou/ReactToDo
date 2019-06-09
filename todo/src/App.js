@@ -81,7 +81,7 @@ class App extends Component {
         <Router>
           <NavBar />
           <br />
-          <Header />
+          {/* <Header /> */}
           <br />
           <Route exact path='/login' component={() => <Login uiConfig={uiConfig} />} />
           <Route exact path='/toDos' component={() =>

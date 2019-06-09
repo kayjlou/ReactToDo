@@ -9,6 +9,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
 import AccountCircleRounded from '@material-ui/icons/AccountCircleRounded';
+import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -20,7 +21,10 @@ const useStyles = makeStyles(theme => ({
   title: {
     flexGrow: 1,
   },
- 
+  link: {
+    color: "white"
+  }
+
 }));
 
 
@@ -29,7 +33,7 @@ export default function NavBar() {
 
   return (
     <>
-      
+
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
@@ -39,7 +43,10 @@ export default function NavBar() {
             <Typography variant="h6" className={classes.title}>
               Welcome
           </Typography>
-            <Button color="inherit">Login</Button>
+            {/* <Button color="inherit">Login</Button> */}
+            <Link to='/login'>
+              <AccountCircleRounded className={classes.link} />
+            </Link>
 
           </Toolbar>
         </AppBar>

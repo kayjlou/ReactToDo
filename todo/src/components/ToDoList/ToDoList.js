@@ -6,6 +6,8 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import Checkbox from '@material-ui/core/Checkbox'
 import DeleteRounded from '@material-ui/icons/DeleteRounded'
+import Header from '../../components/Header/Header'
+import Form from '../../components/Form/Form'
 
 const styles = theme => ({
   root: {
@@ -24,6 +26,7 @@ class ToDoList extends Component {
 
     return (
       <>
+        <Header />
         <List className={classes.root}>
           {
             toDos.map(item => (
