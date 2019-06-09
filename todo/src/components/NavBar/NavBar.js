@@ -9,6 +9,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
 import AccountCircleRounded from '@material-ui/icons/AccountCircleRounded';
+import Assignment from '@material-ui/icons/Assignment';
 import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
@@ -19,6 +20,7 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(2),
   },
   title: {
+    paddingLeft: '5px',
     flexGrow: 1,
   },
   link: {
@@ -30,24 +32,21 @@ const useStyles = makeStyles(theme => ({
 
 export default function NavBar() {
   const classes = useStyles();
-
   return (
     <>
 
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
-            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="Menu">
-              <MenuIcon />
-            </IconButton>
+            <Link to='/toDos'>
+              <Assignment className={classes.link} />
+            </Link>
             <Typography variant="h6" className={classes.title}>
-              Welcome
+              MyToDos
           </Typography>
-            {/* <Button color="inherit">Login</Button> */}
             <Link to='/login'>
               <AccountCircleRounded className={classes.link} />
             </Link>
-
           </Toolbar>
         </AppBar>
       </div>

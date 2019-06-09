@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import "./App.css";
 import Form from './components/Form/Form.js'
-import NavBar from './components/NavBar/NavBar'
-import Header from './components/Header/Header'
+import NavBar from './components/NavBar'
+import Header from './components/Header'
 import ToDoList from "./components/ToDoList";
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase';
@@ -80,14 +80,15 @@ class App extends Component {
       <>
         <Router>
           <NavBar />
-          <br />
+          <br/>
           {/* <Header /> */}
           <br />
           <Route exact path='/login' component={() => <Login uiConfig={uiConfig} />} />
           <Route exact path='/toDos' component={() =>
             <ToDoList toDos={toDos} completed={completed} handleCheck={this.handleCheck} />
           } />
-          <Form handleAddToDo={this.handleAddToDo} onItemChange={this.onItemChange} item={item} />
+          <Route exact path='/toDos' component={() =>
+          <Form handleAddToDo={this.handleAddToDo} onItemChange={this.onItemChange} item={item} />}/>
         </Router>
       </>
     )
