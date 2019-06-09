@@ -8,6 +8,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
+import AccountCircleRounded from '@material-ui/icons/AccountCircleRounded';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -36,9 +37,10 @@ export default function NavBar() {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" className={classes.title}>
-              To Dos
+              Welcome
           </Typography>
             <Button color="inherit">Login</Button>
+
           </Toolbar>
         </AppBar>
       </div>

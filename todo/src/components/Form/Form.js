@@ -6,9 +6,10 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
+import { FormControl } from '@material-ui/core';
 
 
-const useStyles = makeStyles(theme => ({
+const styles = theme => ({
   fab: {
     margin: theme.spacing(1),
   },
@@ -20,82 +21,44 @@ const useStyles = makeStyles(theme => ({
     marginTop: 100
   },
 
-}))
+})
 
 
-export default function Form(props) {
-  const classes = useStyles();
+class Form extends Component {
 
+  render() {
+    const { handleAddToDo, classes, item, onItemChange } = this.props
 
-  // const {item, onItemChange, FormControl, InputLabel, Select, handleChange, inputLabel, values, OutlinedInput, labelWidth } = this.props
+    return (
 
+      <div className={classes.formDiv}>
+        {/* Textfield */}
+        <TextField
 
+          id="item"
+          multiline
+          rowsMax="3"
+          value={item}
+          className={classes.textField}
+          margin="normal"
+          helperText="Please enter a To Do item"
+          variant="outlined"
+          onChange={onItemChange}
+        />
+        {/* End textfield */}
 
+        {/* Add button */}
+        <Fab color="primary" aria-label="Add" className={classes.fab} onClick={() => handleAddToDo(item)}>
+          <AddIcon />
+        </Fab>
+      </div>
 
-
-  // Code for textfield -----------------------------------------
-  // function OutlinedTextFields() {
-  //   const classes = useStyles();
-  //   const [values, setValues] = React.useState({
-  //     name: 'Cat in the Hat',
-  //     age: '',
-  //     multiline: 'Controlled',
-  //     currency: 'EUR',
-  //   });
-
-  // const handleChange = name => event => {
-  //   setValues({ ...values, [name]: event.target.value });
-  // };
-  // Code for textfield  END -----------------------------------------
-
-  // Code for age input-------------------------------------------
-  // function SimpleSelect() {
-  //   const classes = useStyles();
-  //   const [values, setValues] = React.useState({
-  //     age: '',
-  //     name: 'hai',
-  //   });
-
-  // const inputLabel = React.useRef(null);
-  // const [labelWidth, setLabelWidth] = React.useState(0);
-  // React.useEffect(() => {
-  //   setLabelWidth(inputLabel.current.offsetWidth);
-  // }, []);
-
-  // function handleChange(event) {
-  //   setValues(oldValues => ({
-  //     ...oldValues,
-  //     [event.target.name]: event.target.value,
-  //   }));
-  // }
-
-  return (
-
-    <div className={classes.formDiv}>
-      {/* Textfield */}
-      <TextField
-        id="outlined-multiline-flexible"
-        label="Multiline"
-        multiline
-        rowsMax="4"
-        /* value={values.multiline} */
-        // onChange={handleChange('multiline')}
-        className={classes.textField}
-        margin="normal"
-        helperText="Please enter a To Do item"
-        variant="outlined"
-      />
-      {/* End textfield */}
-
-      {/* Add button */}
-      <Fab color="primary" aria-label="Add" className={classes.fab}>
-        <AddIcon />
-      </Fab>
-    </div>
-
-  )
+    )
+  }
 }
 
 
 
+
+export default withStyles(styles)(Form)
 

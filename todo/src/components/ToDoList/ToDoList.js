@@ -17,41 +17,25 @@ const styles = theme => ({
 
 
 class ToDoList extends Component {
-  state = {
-    toDos: [
-      "take out trash",
-      "clean kitchen",
-      "feed dog"
-    ],
-    completed: []
-  }
-  //Handles if item is checked
-  handleCheck = item => {
-    //Set temporary array 
-    let temp = this.state.completed
-    //Push todo Items to temporary array
-    temp.push(item)
-    //Set temp arrarys equal to state
-    this.setState({
-      completed: temp
-    })
-  }
+
 
   render() {
-    const { classes } = this.props
-    const { toDos, completed } = this.state
+    const { classes, toDos, completed, handleCheck } = this.props
 
     return (
-      <List className={classes.root}>
-        {
-          toDos.map(item => (
-            <ListItem key={item} role={undefined} dense button onClick={() => this.handleCheck(item)}>
-              <Checkbox checked={completed.indexOf(item) != -1} tabIndex={-1} disableRipple />
-              <ListItemText primary={item} />
-            </ListItem>
-          ))
-        }
-      </List>
+      <>
+        <List className={classes.root}>
+          {
+            toDos.map(item => (
+              <ListItem key={item} role={undefined} dense button onClick={() => handleCheck(item)}>
+                <Checkbox checked={completed.indexOf(item) != -1} tabIndex={-1} disableRipple />
+                <ListItemText primary={item} />
+              </ListItem>
+
+            ))
+          }
+        </List>
+      </>
     )
   }
 }
