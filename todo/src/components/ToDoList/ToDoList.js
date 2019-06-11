@@ -27,6 +27,7 @@ class ToDoList extends Component {
     return (
       <>
         <Header />
+        <br />
         <List className={classes.root}>
           {
             toDos.map(item => (
