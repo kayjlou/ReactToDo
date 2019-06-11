@@ -6,6 +6,9 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2),
+    maxWidth: 345,
+    margin: 'auto',
+    textAlign: 'center'
   },
 }));
 
@@ -18,6 +21,7 @@ export default function Header() {
         <Typography variant="h5" component="h3">
           My To Dos
         </Typography>
+        <br />
         <Typography component="p">
           "Why do tomorrow what you can do today?"
         </Typography>

@@ -18,11 +18,16 @@ const styles = theme => ({
   },
   formDiv: {
     marginLeft: 100,
-    marginTop: 100
+    marginTop: 60
   },
   textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
+    // marginLeft: theme.spacing(1),
+    // marginRight: theme.spacing(1),
+    margin: 'auto'
+  },
+  buttonDiv: {
+    margin: 'auto',
+    maxWidth: 50
   }
 
 })
@@ -34,28 +39,31 @@ class Form extends Component {
     const { handleAddToDo, classes, item, onItemChange } = this.props
 
     return (
+      <>
+        <div className={classes.formDiv}>
+          {/* Textfield */}
+          <TextField
+            id="item"
+            rowsMax="3"
+            value={item}
+            className={classes.textField}
+            margin="normal"
+            placeholder="To Do item"
+            variant="outlined"
+            onChange={onItemChange}
+          />
+          {/* End textfield */}
+        </div >
 
-      <div className={classes.formDiv}>
-        {/* Textfield */}
-        <TextField
 
-          id="item"
-          multiline
-          rowsMax="3"
-          value={item}
-          className={classes.textField}
-          margin="normal"
-          helperText="Please enter a To Do item"
-          variant="outlined"
-          onChange={onItemChange}
-        />
-        {/* End textfield */}
 
-        {/* Add button */}
-        <Fab color="primary" aria-label="Add" className={classes.fab} onClick={() => handleAddToDo(item)}>
-          <AddIcon />
-        </Fab>
-      </div>
+        <div className={classes.buttonDiv}>
+          <Fab color="primary" aria-label="Add" className={classes.fab} onClick={() => handleAddToDo(item)}>
+            <AddIcon />
+          </Fab>
+        </div>
+
+      </>
 
     )
   }

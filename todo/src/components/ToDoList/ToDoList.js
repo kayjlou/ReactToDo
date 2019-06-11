@@ -14,6 +14,7 @@ const styles = theme => ({
     width: '90%',
     maxWidth: 360,
     backgroundColor: theme.palette.background.paper,
+    margin: 'auto'
   },
 })
 
