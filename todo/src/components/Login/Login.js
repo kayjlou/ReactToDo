@@ -37,45 +37,29 @@ const styles = theme => ({
 
 class Login extends Component {
   state = {
-    num: 0
-  }
-
-
-  //Write function to randomly select quotes
-  getRand = _ => {
-    console.log('getting random number')
-    return Math.floor(Math.random() * 5) + 1
-  }
-
-
-
-
-  //Runs random number to display quote 
-  componentWillMount = () => {
-    let num = this.getRand()
-    console.log(`number is ${num}`)
-    this.setState({ num: num })
-
-  }
-  render() {
-
-
-    const quotes = [
+    quotes: [
       [`Anyone who has never made a mistake has never tried anything new`, '-Albert Einstein'],
       [`If you spend too much time thinking about thing, you will never get it done`, '-Bruce Lee'],
       [`There is no reason not to follow your heart`, '-Steve Jobs'],
-      [`Glory lies in the attemp to reach one's goal and not in reaching it`, '-Mahatma Ghandi'],
+      [`Glory lies in the attempt to reach one's goal and not in reaching it`, '-Mahatma Ghandi'],
       [`The secret of getting ahead is getting started`, '-Mark Twain']
-    ]
+    ],
+    num: 0
+  }
 
+  //Runs random number to display quote 
+  componentWillMount = _ => {
+    let number = Math.floor(Math.random() * 5) + 1
+    console.log(`The random number is ${number}`)
+    this.setState({ num: number })
 
-
+  }
+  render() {
     const { uiConfig, classes } = this.props
+    const { quotes, num } = this.state
 
     return (
       <>
-
-
         <br />
         <Card className={classes.card}>
           <CardMedia
@@ -91,8 +75,8 @@ class Login extends Component {
         <br />
         {/* Contains random quotes */}
         <div className={classes.quotes}>
-          <p>{quotes[0][0]}</p>
-          <p>{quotes[0][1]}</p>
+          <p>{quotes[num][0]}</p>
+          <p>{quotes[num][1]}</p>
         </div>
       </>
     );
