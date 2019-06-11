@@ -70,7 +70,9 @@ class App extends Component {
   }
 
   onItemChange = event => {
+    event.preventDefault()
     this.setState({ item: event.target.value })
+
   }
   render() {
     const { item, toDos, completed } = this.state
