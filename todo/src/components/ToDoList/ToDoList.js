@@ -11,7 +11,7 @@ import Form from '../../components/Form/Form'
 
 const styles = theme => ({
   root: {
-    width: '100%',
+    width: '90%',
     maxWidth: 360,
     backgroundColor: theme.palette.background.paper,
   },
