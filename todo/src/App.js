@@ -84,11 +84,11 @@ class App extends Component {
           <NavBar />
           {/* <Header /> */}
           <br />
-          <Route exact path='/login' component={() => <Login uiConfig={uiConfig} />} />
-          <Route exact path='/toDos' component={() =>
+          <Route exact path='/login' render={_ => <Login uiConfig={uiConfig} />} />
+          <Route exact path='/toDos' render={_ =>
             <ToDoList toDos={toDos} completed={completed} handleCheck={this.handleCheck} />
           } />
-          <Route exact path='/toDos' component={() =>
+          <Route exact path='/toDos' render={_ =>
             <Form handleAddToDo={this.handleAddToDo} onItemChange={this.onItemChange} item={item} />} />
         </Router>
       </>
